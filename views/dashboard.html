@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KPI Dashboard - Steel Industry Tracker</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>KPI Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/news">News</a></li>
+        <li><a href="/dashboard">KPI Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="kpi-charts">
+      <h2>Steel Industry KPIs</h2>
+      <div class="kpi-tile" onclick="openPopup('steelPriceChart')">
+        <canvas id="steelPriceChart"></canvas>
+      </div>
+      <div class="kpi-tile" onclick="openPopup('productionChart')">
+        <canvas id="productionChart"></canvas>
+      </div>
+    </section>
+  
+  </main>
+  <footer>
+    <p>&copy; 2025 Steel Industry Tracker</p>
+  </footer>
+  <script src="/js/script.js"></script>
+</body>
+</html>
