@@ -1,9 +1,14 @@
 // News API
 // Replace with your NewsAPI key
 const API_KEY = '7f134a5e9d8b4972b79736bc20bfc7a1';
-const NEWS_QUERY_KEY = "Steel Trade"
-const NEWS_KEYWORD = 'steel';
-const NEWS_API_URL = `https://newsapi.org/v2/everything?q=${NEWS_QUERY_KEY}&apiKey=${API_KEY}&sortBy=publishedAt&keyword=${NEWS_KEYWORD}&length=5`;
+// const NEWS_QUERY_KEY = "Aluminium"
+const NEWS_QUERY_KEY = encodeURIComponent('Steel');
+const NEWS_SEARCH_IN = 'title,description';
+const NEWS_KEYWORD = 'steel'; 
+const NEWS_NUM_ARTICLES = 20;
+const NEWS_EXCLUDE_DOMAINS = 'yahoo.com,example.org';
+
+const NEWS_API_URL = `https://newsapi.org/v2/everything?q=${NEWS_QUERY_KEY}&searchIn=${NEWS_SEARCH_IN}&apiKey=${API_KEY}&sortBy=relevancy&keyword=${NEWS_KEYWORD}&pageSize=${NEWS_NUM_ARTICLES}&excludeDomains=${NEWS_EXCLUDE_DOMAINS}`;
 
 fetch(NEWS_API_URL)
 .then(response => response.json())
@@ -16,6 +21,7 @@ fetch(NEWS_API_URL)
       <a href="${article.url}" target="_blank">
         <h3>${article.title}</h3>
         <p>${article.description}</p>
+        <small>Source: ${article.source.name}</small>
       </a>
     `;
     newsFeed.appendChild(newsItem);

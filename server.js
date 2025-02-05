@@ -19,22 +19,22 @@ app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'dashboard.html'));
 });
 
-app.get('/api/news', async (req, res) => {
-  try {
-    const response = await axios.get('https://newsapi.org/v2/everything', {
-      params: {
-        q: 'trump trade',
-        apiKey: '7f134a5e9d8b4972b79736bc20bfc7a1',
-        sortBy: 'publishedAt',
-        keyword: 'steel',
-        length: 5,
-      },
-    });
-    res.json(response.data);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch news @API News' });
-  }
-});
+// app.get('/api/news', async (req, res) => {
+//   try {
+//     const response = await axios.get('https://newsapi.org/v2/everything', {
+//       params: {
+//         q: 'Steel Industry',
+//         apiKey: '7f134a5e9d8b4972b79736bc20bfc7a1',
+//         sortBy: 'publishedAt',
+//         keyword: 'steel',
+//         length: 5,
+//       },
+//     });
+//     res.json(response.data);
+//   } catch (error) {
+//     res.status(500).json({ error: 'Failed to fetch news @API News' });
+//   }
+// });
 
 // Start server
 const PORT = process.env.PORT || 3000;
